@@ -19,13 +19,15 @@ jobs:
           architecture: x64
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
-        run: pip install cookiecutter
+        run: pip install cookiecutter pre-commit
       - name: Create demo project
         run: |
           cookiecutter --no-input --output-dir=var .
           python -m venv var/venv
           source var/venv/bin/activate
           cd var/demo
+          git init
           pip install '.[test]'
           pytest
           make -C docs dirhtml
+          pre-commit run --all-files
