@@ -1,5 +1,4 @@
 """{{ cookiecutter.description }}"""
-from docutils import nodes
 from sphinx.application import Sphinx
 
 __version__ = "{{ cookiecutter.version }}"
