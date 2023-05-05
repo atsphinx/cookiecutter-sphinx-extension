@@ -6,5 +6,8 @@
   "description": "My sphinx extension.",
   "author_name": "Kazuya Takei",
   "author_email": "myself@attakei.net",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "_copy_without_render": [
+    ".github"
+  ]
 }
