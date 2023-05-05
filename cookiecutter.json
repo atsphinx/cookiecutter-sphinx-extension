@@ -1,0 +1,10 @@
+{
+  "project_basename": "demo",
+  "project_name": "atsphinx-{{ cookiecutter.project_basename.lower() }}",
+  "package_fullname": "atsphinx.{{ cookiecutter.project_basename.lower().replace('-', '_') }}",
+  "package_fullpath": "atsphinx/{{ cookiecutter.project_basename.lower().replace('-', '_') }}",
+  "description": "My sphinx extension.",
+  "author_name": "Kazuya Takei",
+  "author_email": "myself@attakei.net",
+  "version": "0.0.0"
+}
