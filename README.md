@@ -1,12 +1,12 @@
 # cookiecutter-sphinx-extension
 
-My cookieecuter template to genearte Sphinx extension prefixed `atsphinx`.
+My cookiecutter template to generate Sphinx extension prefixed `atsphinx`.
 
 ## About generated project
 
 - PyPI's package name has `atsphinx-` as prefix.
 - Package is namespaced package for `atsphinx.`.
-- Use `pyproject.toml` for package definition.
+- Manage project data with Rye.
 
 ## Usage
 
