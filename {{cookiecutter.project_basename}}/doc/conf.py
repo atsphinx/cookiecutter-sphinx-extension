@@ -1,4 +1,3 @@
-# noqa: D100
 from {{ cookiecutter.package_fullname }} import __version__ as version
 
 # -- Project information

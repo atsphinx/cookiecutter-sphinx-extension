@@ -1,4 +1,5 @@
-"""{{ cookiecutter.description }}"""
+"""{{ cookiecutter.description }}."""
+
 from sphinx.application import Sphinx
 
 __version__ = "{{ cookiecutter.version }}"

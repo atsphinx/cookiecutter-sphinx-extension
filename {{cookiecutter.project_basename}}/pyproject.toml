@@ -46,7 +46,13 @@ dev-dependencies = [
 setup = {chain = ["setup:sync", "setup:pre-commit"]}
 "setup:sync" = "rye sync --no-lock --all-features"
 "setup:pre-commit" = "pre-commit install"
-doc = "make -C docs"
+doc = "make -C doc"
+
+[tool.ruff.lint]
+select = ["C90", "D", "E", "F", "I", "W"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "pep257"
 
 [tool.hatch.metadata]
 allow-direct-references = true
