@@ -29,6 +29,7 @@ jobs:
         run: |
           cd var/demo
           git init
+          git add .
           rye sync
           rye run pytest
           rye run doc dirhtml
