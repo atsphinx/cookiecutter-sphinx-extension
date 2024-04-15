@@ -1,0 +1,45 @@
+current_version = "{{ cookiecutter.version }}"
+
+[[files]]
+path = "pyproject.toml"
+{% raw %}
+search = "version = \"{{current_version}}\""
+replace = "version = \"{{new_version}}\""
+{% endraw %}
+
+[[files]]
+path = "src/atsphinx/{{cookiecutter.package_basename}}.py"
+{% raw %}
+search = "version = \"{{current_version}}\""
+replace = "version = \"{{new_version}}\""
+{% endraw %}
+
+[[files]]
+path = "CHANGES.rst"
+{% raw %}
+search = """
+Change logs
+===========
+"""
+replace = """
+Change logs
+===========
+
+v{{new_version}}
+={% for _ in new_version %}={% endfor %}
+
+:Date: {{ now|date }} (JST)
+
+Breaking changes
+----------------
+
+Features
+--------
+
+Fixes
+-----
+
+Others
+------
+"""
+{% endraw %}
