@@ -7,6 +7,8 @@ My cookiecutter template to generate Sphinx extension prefixed `atsphinx`.
 - PyPI's package name has `atsphinx-` as prefix.
 - Package is namespaced package for `atsphinx.`.
 - Manage project data with Rye.
+- Manage target bumpversion with age-cli.
+- Included documentation template and tests.
 
 ## Usage
 
