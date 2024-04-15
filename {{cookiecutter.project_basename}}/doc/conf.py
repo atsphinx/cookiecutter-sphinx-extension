@@ -2,7 +2,7 @@ from {{ cookiecutter.package_fullname }} import __version__ as version
 
 # -- Project information
 project = "{{ cookiecutter.project_name }}"
-copyright = "2023, {{ cookiecutter.author_name }}"
+copyright = "{% now 'local', '%Y' %}, {{ cookiecutter.author_name }}"
 author = "{{ cookiecutter.author_name }}"
 release = version
 
