@@ -40,6 +40,8 @@ build-backend = "hatchling.build"
 managed = true
 dev-dependencies = [
     "pytest ==7.*",
+    "sphinx-autobuild",
+    "esbonio",
 ]
 
 [tool.rye.scripts]
