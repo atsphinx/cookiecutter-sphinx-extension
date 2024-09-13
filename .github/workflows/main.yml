@@ -19,18 +19,16 @@ jobs:
           architecture: x64
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies 
-        run: pip install cookiecutter pre-commit
+        run: pip install uv cookiecutter pre-commit
       - name: Create demo project
         run: |
-          pip install cookiecutter
           cookiecutter --no-input --output-dir=var .
-      - uses: eifinger/setup-rye@v2
       - name: Verify created project
         run: |
           cd var/demo
           git init
           git add .
-          rye sync
-          rye run pytest
-          rye run doc dirhtml
+          uv sync
+          uv run pytest
+          uv run make -C doc dirhtml
           pre-commit run --all-files
