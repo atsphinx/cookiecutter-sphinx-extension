@@ -36,7 +36,7 @@ Home = "https://github.com/atsphinx/{{ cookiecutter.project_basename }}"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.rye]
+[tool.uv]
 managed = true
 dev-dependencies = [
     "pytest ==7.*",
@@ -45,12 +45,6 @@ dev-dependencies = [
     "esbonio",
     "atsphinx-mini18n",
 ]
-
-[tool.rye.scripts]
-setup = {chain = ["setup:sync", "setup:pre-commit"]}
-"setup:sync" = "rye sync --no-lock --all-features"
-"setup:pre-commit" = "pre-commit install"
-doc = "make -C doc"
 
 [tool.ruff.lint]
 select = ["C90", "D", "E", "F", "I", "W"]
