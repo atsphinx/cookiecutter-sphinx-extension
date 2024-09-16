@@ -55,7 +55,7 @@ jobs:
       - name: Run tests
         run: |
           source .venv/bin/activate
-          make -C doc linkcheck dirhtml
+          make -C docs linkcheck dirhtml
   build-test:
     runs-on: ubuntu-latest
     steps:

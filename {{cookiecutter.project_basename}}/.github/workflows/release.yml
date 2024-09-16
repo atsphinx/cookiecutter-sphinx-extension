@@ -77,11 +77,11 @@ jobs:
       - name: Run tests
         run: |
           source .venv/bin/activate
-          make -C doc dirhtml
+          make -C docs dirhtml
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: doc/_build/dirhtml
+          path: docs/_build/dirhtml
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
