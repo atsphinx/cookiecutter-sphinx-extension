@@ -4,7 +4,7 @@ version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.description }}"
 authors = [{name = "{{ cookiecutter.author_name }}", email = "{{ cookiecutter.author_email }}"}]
 license = "Apache-2.0"
-requires-python = ">= 3.8"
+requires-python = ">= {{ cookiecutter.requires_python }}"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Framework :: Sphinx",
@@ -14,11 +14,18 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
+    {%- if cookiecutter.requires_python in ["3.9"] %}
     "Programming Language :: Python :: 3.9",
+    {%- endif %}
+    {%- if cookiecutter.requires_python in ["3.9", "3.10"] %}
     "Programming Language :: Python :: 3.10",
+    {%- endif %}
+    {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11"] %}
     "Programming Language :: Python :: 3.11",
+    {%- endif %}
+    {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12"] %}
     "Programming Language :: Python :: 3.12",
+    {%- endif %}
     "Topic :: Documentation",
     "Topic :: Documentation :: Sphinx",
     "Topic :: Software Development",
@@ -28,7 +35,6 @@ classifiers = [
     "Topic :: Text Processing",
     "Topic :: Text Processing :: Markup",
     "Topic :: Text Processing :: Markup :: reStructuredText",
-
 ]
 readme = "README.rst"
 dependencies = [

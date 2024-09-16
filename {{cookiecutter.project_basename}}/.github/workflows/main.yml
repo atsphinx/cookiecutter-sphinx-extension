@@ -22,18 +22,32 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12']
+        python-version:
+          {%- if cookiecutter.requires_python in ["3.9"] %}
+          - '3.9'
+          {%- endif %}
+          {%- if cookiecutter.requires_python in ["3.9", "3.10"] %}
+          - '3.10'
+          {%- endif %}
+          {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11"] %}
+          - '3.11'
+          {%- endif %}
+          {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12"] %}
+          - '3.12'
+          {%- endif %}
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v2
       - uses: actions/setup-python@v5
         id: 'setup-python'
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
       - name: Run tests
         run: |
+          {%- raw %}
           uv sync --frozen --python='${{ steps.setup-python.outputs.python-path }}'
           uv run pytest
+          {%- endraw %}
   doc-test:
     runs-on: ubuntu-latest
     steps:

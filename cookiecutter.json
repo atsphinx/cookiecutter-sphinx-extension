@@ -8,8 +8,5 @@
   "author_name": "Kazuya Takei",
   "author_email": "myself@attakei.net",
   "version": "0.0.0",
-  "local_python_version": "3.8.17",
-  "_copy_without_render": [
-    ".github/workflows"
-  ]
+  "requires_python": ["3.9", "3.10", "3.11", "3.12"]
 }
