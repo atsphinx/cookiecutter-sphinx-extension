@@ -19,9 +19,15 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Topic :: Documentation",
     "Topic :: Documentation :: Sphinx",
     "Topic :: Software Development",
     "Topic :: Software Development :: Documentation",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Text Processing",
+    "Topic :: Text Processing :: Markup",
+    "Topic :: Text Processing :: Markup :: reStructuredText",
 
 ]
 readme = "README.rst"
@@ -31,6 +37,7 @@ dependencies = [
 
 [project.urls]
 Home = "https://github.com/atsphinx/{{ cookiecutter.project_basename }}"
+Documentation = "https://atsphinx.github.io/{{ cookiecutter.project_basename }}"
 
 [build-system]
 requires = ["hatchling"]
@@ -39,10 +46,10 @@ build-backend = "hatchling.build"
 [tool.uv]
 managed = true
 dev-dependencies = [
-    "pytest ==7.*",
+    "esbonio",
+    "pytest",
     "sphinx-autobuild",
     "sphinx-intl",
-    "esbonio",
     "atsphinx-mini18n",
 ]
 
