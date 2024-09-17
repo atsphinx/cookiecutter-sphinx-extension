@@ -8,7 +8,7 @@ replace = "version = \"{{new_version}}\""
 {% endraw %}
 
 [[files]]
-path = "src/atsphinx/{{cookiecutter.package_basename}}.py"
+path = "src/atsphinx/{{cookiecutter.package_basename}}/__init__.py"
 {% raw %}
 search = "version = \"{{current_version}}\""
 replace = "version = \"{{new_version}}\""
