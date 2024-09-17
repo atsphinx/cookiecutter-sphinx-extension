@@ -7,6 +7,6 @@
 Getting started
 ===============
 
-.. code: console
+.. code:: console
 
    pip install {{ cookiecutter.project_name }}
