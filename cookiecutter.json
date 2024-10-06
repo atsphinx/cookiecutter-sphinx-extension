@@ -8,5 +8,9 @@
   "author_name": "Kazuya Takei",
   "author_email": "myself@attakei.net",
   "version": "0.0.0",
-  "requires_python": ["3.9", "3.10", "3.11", "3.12"]
+  "requires_python": ["3.9", "3.10", "3.11", "3.12"],
+  "_copy_without_render": [
+    "Taskfile.yaml",
+    "**/Taskfile.yaml"
+  ]
 }
