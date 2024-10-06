@@ -8,6 +8,8 @@ on:
       - '**'
   pull_request:
   workflow_dispatch:
+  schedule:
+    - cron: '0 9 * * 5'  # 18:00 on Friday JST
 
 jobs:
   lint:
@@ -17,6 +19,7 @@ jobs:
       - uses: astral-sh/setup-uv@v2
       - name: Lint by pre-commit
         run: |
+          uv sync --frozen --all-extras
           uvx pre-commit run --all-files
   source-test:
     runs-on: ubuntu-latest
@@ -35,6 +38,7 @@ jobs:
           {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12"] %}
           - '3.12'
           {%- endif %}
+        workspace: ['locked', 'latest']
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v2
@@ -42,12 +46,19 @@ jobs:
         id: 'setup-python'
         with:
           python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
-      - name: Run tests
+      {%- raw %}
+      - name: 'Configure env as locked deps by uv.lock'
         run: |
-          {%- raw %}
           uv sync --frozen --python='${{ steps.setup-python.outputs.python-path }}'
+        if: ${{ matrix.workspace == 'locked'}}
+      - name: 'Configure env as latest deps on PyPI'
+        run: |
+          uv sync -U --python='${{ steps.setup-python.outputs.python-path }}'
+        if: ${{ matrix.workspace == 'latest'}}
+      {%- endraw %}
+      - name: 'Run tests'
+        run: |
           uv run pytest
-          {%- endraw %}
   doc-test:
     runs-on: ubuntu-latest
     steps:
