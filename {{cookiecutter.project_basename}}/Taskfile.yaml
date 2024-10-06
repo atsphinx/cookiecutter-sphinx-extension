@@ -16,7 +16,7 @@ tasks:
       - '{{.RUN_PYTHON}} pytest'
       - task: 'docs:intl'
       - task: 'docs:build-linkcheck'
-      - task: 'docs:build-mini18n-dirhtml'
+      - task: 'docs:build-dirhtml'
       - 'uv build'
   release-*:
     desc: 'Run elease process'
