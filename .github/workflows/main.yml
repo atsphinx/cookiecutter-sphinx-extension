@@ -14,6 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v2
+      - uses: arduino/setup-task@v2
       - name: Create demo project
         run: |
           uvx cookiecutter --no-input --output-dir=var .
@@ -27,6 +28,4 @@ jobs:
           cd var/demo
           git init
           uv sync --python='${{ steps.setup-python.outputs.python-path }}'
-          uv run pytest
-          uv run make -C docs dirhtml
-          uvx pre-commit run --all-files
+          task fulltest
