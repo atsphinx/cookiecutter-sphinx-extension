@@ -28,4 +28,4 @@ jobs:
           cd var/demo
           git init
           uv sync --python='${{ steps.setup-python.outputs.python-path }}'
-          task fulltest
+          task verify

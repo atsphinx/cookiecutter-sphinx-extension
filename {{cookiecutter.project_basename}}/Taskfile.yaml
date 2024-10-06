@@ -9,8 +9,8 @@ tasks:
     desc: 'Setup workspace'
     cmds:
       - 'uv sync --frozen'
-  test:
-    desc: 'Test environment'
+  verify:
+    desc: 'Verify environment by all procs'
     cmds:
       - '{{.RUN_PYTHON}} pre-commit run --all-files'
       - '{{.RUN_PYTHON}} pytest'
