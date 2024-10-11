@@ -1,7 +1,15 @@
 #!/bin/sh
 
-task init
+# Setup as git repository
 git init
+uvx pre-commit install
+
+# Initialize and verify workspace
+uv sync
+task docs:intl
+task verify
+
+# Save
 git add .
 git commit -m "Initial commit
 
