@@ -26,6 +26,9 @@ classifiers = [
     {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12"] %}
     "Programming Language :: Python :: 3.12",
     {%- endif %}
+    {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12", "3.13"] %}
+    "Programming Language :: Python :: 3.13",
+    {%- endif %}
     "Topic :: Documentation",
     "Topic :: Documentation :: Sphinx",
     "Topic :: Software Development",
