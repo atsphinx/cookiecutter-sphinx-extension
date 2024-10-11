@@ -7,17 +7,8 @@ Overview
 
 .. todo:: Write it
 
-Installation
-============
+.. toctree::
+   :maxdepth: 1
 
-.. todo:: Write it
-
-Usage
-=====
-
-.. todo:: Write it
-
-Configuration
-=============
-
-.. todo:: Write it
+   guide
+   changes
