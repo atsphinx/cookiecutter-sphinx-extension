@@ -19,7 +19,7 @@ tasks:
       - task: 'docs:build-dirhtml'
       - 'uv build'
   release-*:
-    desc: 'Run elease process'
+    desc: 'Run release process'
     vars:
       LEVEL: '{{index .MATCH 0}}'
     cmds:
