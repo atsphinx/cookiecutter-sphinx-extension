@@ -5,6 +5,11 @@ vars:
   RUN_PYTHON: 'uv run'
 
 tasks:
+  init:
+    desc: 'Initialize workspace'
+    cmds:
+      - 'uv sync'
+      - task: 'docs:intl'
   setup:
     desc: 'Setup workspace'
     cmds:
