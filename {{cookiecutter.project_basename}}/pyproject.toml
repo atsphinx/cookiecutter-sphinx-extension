@@ -55,11 +55,12 @@ build-backend = "hatchling.build"
 [tool.uv]
 managed = true
 dev-dependencies = [
+    "atsphinx-mini18n",
     "esbonio",
+    "furo",
     "pytest",
     "sphinx-autobuild",
     "sphinx-intl",
-    "atsphinx-mini18n",
 ]
 
 [tool.ruff.lint]
