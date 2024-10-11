@@ -1,6 +1,6 @@
-{%- if cookiecutter.project_basename > 'mini18n' -%}
+{% if cookiecutter.project_basename > 'mini18n' -%}
 from atsphinx.mini18n import get_template_dir as get_mini18n_template_dir
-{%- endif -%}
+{% endif -%}
 from {{ cookiecutter.package_fullname }} import __version__ as version
 {%- if cookiecutter.project_basename < 'mini18n' %}
 from atsphinx.mini18n import get_template_dir as get_mini18n_template_dir
