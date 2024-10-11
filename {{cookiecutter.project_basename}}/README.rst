@@ -10,3 +10,10 @@ Getting started
 .. code:: console
 
    pip install {{ cookiecutter.project_name }}
+
+.. code:: python
+
+   extensions = [
+       ...,  # Your extensions
+       "{{ cookiecutter.package_fullname }}",
+   ]
