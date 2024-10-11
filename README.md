@@ -17,3 +17,10 @@ This requirements Git and cookiecutter.
 ```console
 cookiecutter https://github.com/atsphinx/cookiecutter-sphinx-extension
 ```
+
+For me
+
+```
+uvx cookiecutter -o .. --no-input . requires_python='3.9' \
+  project_basename='NAME' description='DESCRIPTION'
+```
