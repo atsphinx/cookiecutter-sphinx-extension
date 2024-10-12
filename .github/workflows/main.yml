@@ -10,13 +10,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.9', '3.10', '3.11', '3.12']
+        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v2
       - uses: arduino/setup-task@v2
       - name: Create demo project
         run: |
+          git config --global user.email "user@example.com"
+          git config --global user.name "Test user"
           uvx cookiecutter --no-input --output-dir=var .
       - uses: actions/setup-python@v5
         id: 'setup-python'
@@ -26,6 +28,6 @@ jobs:
       - name: Verify created project
         run: |
           cd var/demo
-          git init
+          rm -rf .venv
           uv sync --python='${{ steps.setup-python.outputs.python-path }}'
           task verify
