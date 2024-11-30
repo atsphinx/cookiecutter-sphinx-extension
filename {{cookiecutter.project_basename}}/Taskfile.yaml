@@ -8,7 +8,7 @@ tasks:
   setup:
     desc: 'Setup workspace'
     cmds:
-      - 'uv sync --frozen'
+      - 'uv sync --frozen --all-extras'
   verify:
     desc: 'Verify environment by all procs'
     cmds:
