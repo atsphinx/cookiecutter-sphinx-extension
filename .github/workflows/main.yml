@@ -13,18 +13,12 @@ jobs:
         python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v2
-      - uses: arduino/setup-task@v2
-      - name: Create demo project
+      - uses: jdx/mise-action@v2
+      - name: 'Create demo project'
         run: |
           git config --global user.email "user@example.com"
           git config --global user.name "Test user"
           uvx cookiecutter --no-input --output-dir=var .
-      - uses: actions/setup-python@v5
-        id: 'setup-python'
-        with:
-          architecture: x64
-          python-version: ${{ matrix.python-version }}
       - name: Verify created project
         run: |
           cd var/demo
