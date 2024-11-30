@@ -2,7 +2,7 @@
 
 # Setup as git repository
 git init
-uvx pre-commit install
+lefthook install
 
 # Initialize and verify workspace
 uv sync

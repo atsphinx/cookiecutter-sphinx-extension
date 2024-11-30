@@ -12,7 +12,7 @@ tasks:
   verify:
     desc: 'Verify environment by all procs'
     cmds:
-      - 'uvx pre-commit run --all-files'
+      - 'lefthook run pre-commit --all-files'
       - '{{.RUN_PYTHON}} pytest'
       - task: 'docs:intl'
       - task: 'docs:build-linkcheck'
