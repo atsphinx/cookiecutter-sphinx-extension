@@ -56,8 +56,10 @@ build-backend = "hatchling.build"
 managed = true
 dev-dependencies = [
     "atsphinx-mini18n",
+    "doc8",
     "esbonio",
     "furo",
+    "mypy",
     "pytest",
     "sphinx-autobuild",
     "sphinx-intl",
@@ -75,3 +77,10 @@ allow-direct-references = true
 [tool.hatch.build.targets.wheel]
 packages = ["src/atsphinx"]
 only-includes = ["src/atsphinx"]
+
+[tool.mypy]
+exclude = 'conf\.py$'
+
+[[tool.mypy.overrides]]
+module = ['docutils', 'docutils.*']
+ignore_missing_imports = true
