@@ -17,15 +17,17 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v2
-      - uses: arduino/setup-task@v2
-      - name: Build document
+      - uses: jdx/mise-action@v2
+      - name: 'Configure dependencies'
+        run: |
+          uv sync --frozen --all-extras
+      - name: 'Build document'
         run: |
           task setup docs:build
-      - name: Upload artifact
+      - name: 'Upload artifact'
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs/_build/mini18n-dirhtml
-      - name: Deploy to GitHub Pages
+      - name: 'Deploy to GitHub Pages'
         id: deployment
         uses: actions/deploy-pages@v4

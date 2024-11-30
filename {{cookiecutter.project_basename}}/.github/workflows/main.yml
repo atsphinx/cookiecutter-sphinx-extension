@@ -16,14 +16,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v2
-      - name: Lint by pre-commit
+      - uses: jdx/mise-action@v2
+      - name: 'Configure dependencies'
         run: |
           uv sync --frozen --all-extras
-          uvx pre-commit run --all-files
+      - name: 'Run linters'
+        run: |
+          lefthook run pre-commit --all-files
   source-test:
     runs-on: ubuntu-latest
     strategy:
+      max-parallel: 4
       matrix:
         python-version:
           {%- if cookiecutter.requires_python in ["3.9"] %}
@@ -43,13 +46,9 @@ jobs:
           {%- endif %}
         workspace: ['locked', 'latest']
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v2
+      - uses: actions/checkout@v3
+      - uses: jdx/mise-action@v2
       {%- raw %}
-      - uses: actions/setup-python@v5
-        id: 'setup-python'
-        with:
-          python-version: ${{ matrix.python-version }}
       - name: 'Configure env as locked deps by uv.lock'
         run: |
           uv sync --frozen --python='${{ steps.setup-python.outputs.python-path }}'
@@ -62,21 +61,23 @@ jobs:
       - name: 'Run tests'
         run: |
           uv run pytest
-  doc-test:
+  docs-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v2
-      - uses: arduino/setup-task@v2
-      - name: Run tests
+      - uses: jdx/mise-action@v2
+      - name: 'Configure dependencies'
+        run: |
+          uv sync --frozen --all-extras
+      - name: 'Run tests'
         run: |
           task setup docs:build-linkcheck docs:build-dirhtml
   build-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v2
-      - name: Build package
+      - uses: jdx/mise-action@v2
+      - name: 'Try building as package'
         run: |
           uv build
           ls -l dist
