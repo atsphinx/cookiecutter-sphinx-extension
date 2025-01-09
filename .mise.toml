@@ -1,4 +1,4 @@
 [tools]
-lefthook = "latest"
-uv = "latest"
 task = "latest"
+uv = "latest"
+lefthook = "latest"
