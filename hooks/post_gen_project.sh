@@ -5,7 +5,7 @@ git init
 lefthook install
 
 # Initialize and verify workspace
-uv sync
+uv sync --all-extras
 task docs:intl
 task verify
 
