@@ -19,7 +19,7 @@ jobs:
       - uses: jdx/mise-action@v2
       - name: 'Configure dependencies'
         run: |
-          uv sync --frozen --all-extras
+          uv sync --all-extras --frozen
       - name: 'Run linters'
         run: |
           lefthook run pre-commit --all-files
@@ -48,14 +48,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: jdx/mise-action@v2
+      - name: 'Stand by python-version'
+        run: |
+          echo ${{ matrix.python-version }} > .python-version
       {%- raw %}
       - name: 'Configure env as locked deps by uv.lock'
         run: |
-          uv sync --frozen --python='${{ steps.setup-python.outputs.python-path }}'
+          uv sync --all-extras --frozen
         if: ${{ matrix.workspace == 'locked'}}
       - name: 'Configure env as latest deps on PyPI'
         run: |
-          uv sync -U --python='${{ steps.setup-python.outputs.python-path }}'
+          uv sync --all-extras --upgrade
         if: ${{ matrix.workspace == 'latest'}}
       {%- endraw %}
       - name: 'Run tests'
@@ -68,7 +71,7 @@ jobs:
       - uses: jdx/mise-action@v2
       - name: 'Configure dependencies'
         run: |
-          uv sync --frozen --all-extras
+          uv sync --all-extras --frozen
       - name: 'Run tests'
         run: |
           task setup docs:build-linkcheck docs:build-dirhtml

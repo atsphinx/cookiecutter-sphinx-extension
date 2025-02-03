@@ -20,7 +20,7 @@ jobs:
       - uses: jdx/mise-action@v2
       - name: 'Configure dependencies'
         run: |
-          uv sync --frozen --all-extras
+          uv sync --all-extras --frozen
       - name: 'Build document'
         run: |
           task setup docs:build
