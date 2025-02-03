@@ -48,10 +48,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: jdx/mise-action@v2
+      {%- raw %}
       - name: 'Stand by python-version'
         run: |
           echo ${{ matrix.python-version }} > .python-version
-      {%- raw %}
       - name: 'Configure env as locked deps by uv.lock'
         run: |
           uv sync --all-extras --frozen
