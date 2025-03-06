@@ -52,18 +52,27 @@ Documentation = "https://atsphinx.github.io/{{ cookiecutter.project_basename }}"
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.uv]
-managed = true
-dev-dependencies = [
-    "atsphinx-mini18n",
+[dependency-groups]
+dev = [
+    {include-group = "test"},
+    {include-group = "docs"},
     "doc8",
     "esbonio",
-    "furo",
     "mypy",
-    "pytest",
+    "types-docutils>=0.21.0.20241128",
+]
+docs = [
+    "atsphinx-mini18n",
+    "furo",
     "sphinx-autobuild",
     "sphinx-intl",
 ]
+test = [
+    "pytest",
+]
+
+[tool.uv]
+managed = true
 
 [tool.ruff.lint]
 select = ["C90", "D", "E", "F", "I", "W"]

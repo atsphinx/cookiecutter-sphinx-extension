@@ -18,17 +18,14 @@ replace = "version = \"{{new_version}}\""
 path = "CHANGES.rst"
 {% raw %}
 search = """
-Change logs
-===========
+v{{current_version}}
+={% for _ in current_version %}={% endfor %}
 """
 replace = """
-Change logs
-===========
-
 v{{new_version}}
 ={% for _ in new_version %}={% endfor %}
 
-:Date: {{ now|date }} (JST)
+:Date: {{ now|date }} (Asia/Tokyo)
 
 Breaking changes
 ----------------
@@ -41,6 +38,9 @@ Fixes
 
 Others
 ------
+
+v{{current_version}}
+={% for _ in current_version %}={% endfor %}
 """
 {% endraw %}
 

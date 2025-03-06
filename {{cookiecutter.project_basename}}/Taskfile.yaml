@@ -10,6 +10,7 @@ tasks:
     cmds:
       - 'uv sync --frozen --all-extras'
       - 'lefthook install'
+      - task: 'docs:apidoc'
   verify:
     desc: 'Verify environment by all procs'
     cmds:

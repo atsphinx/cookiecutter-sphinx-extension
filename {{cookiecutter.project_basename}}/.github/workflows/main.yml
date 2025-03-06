@@ -9,7 +9,11 @@ on:
   pull_request:
   workflow_dispatch:
   schedule:
-    - cron: '0 9 * * 5'  # 18:00 on Friday JST
+    - cron: '0 9 * * 5'  # 18:00 on Friday Asia/Tokyo
+
+env:
+  UV_NO_SYNC: 1
+
 
 jobs:
   lint:
