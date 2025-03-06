@@ -59,6 +59,7 @@ dev = [
     "doc8",
     "esbonio",
     "mypy",
+    "ruff",
     "types-docutils>=0.21.0.20241128",
 ]
 docs = [
