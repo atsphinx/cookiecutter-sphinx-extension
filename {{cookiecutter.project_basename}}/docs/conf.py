@@ -25,6 +25,7 @@ templates_path = ["_templates", get_mini18n_template_dir()]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # -- Options for i18n
+language = "en"
 gettext_compact = False
 locale_dirs = ["_locales"]
 
