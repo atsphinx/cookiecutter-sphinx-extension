@@ -2,10 +2,10 @@
 
 # Setup as git repository
 git init
-lefthook install
 
 # Initialize and verify workspace
-uv sync --all-extras
+uv sync --all-extras --all-groups
+task setup
 task docs:intl
 task verify
 
