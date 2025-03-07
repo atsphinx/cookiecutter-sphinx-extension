@@ -1,0 +1,14 @@
+[project]
+name = "cookiecutter-sphinx-extension"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cookiecutter>=2.6.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.9.9",
+]
