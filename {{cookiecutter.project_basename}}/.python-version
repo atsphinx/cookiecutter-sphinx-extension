@@ -1,1 +1,1 @@
-{{ cookiecutter.requires_python }}
+{{ cookiecutter.workspace_python }}

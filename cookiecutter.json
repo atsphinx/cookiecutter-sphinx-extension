@@ -9,6 +9,7 @@
   "author_email": "myself@attakei.net",
   "version": "0.0.0",
   "requires_python": ["3.9", "3.10", "3.11", "3.12", "3.13"],
+  "workspace_python": ["3.9", "3.10", "3.11", "3.12", "3.13"],
   "_copy_without_render": [
     "Taskfile.yaml",
     "**/Taskfile.yaml",

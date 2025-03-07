@@ -89,6 +89,7 @@ packages = ["src/atsphinx"]
 only-includes = ["src/atsphinx"]
 
 [tool.mypy]
+python_version = "{{ cookiecutter.requires_python }}"
 exclude = 'conf\.py$'
 
 [[tool.mypy.overrides]]
