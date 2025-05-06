@@ -7,7 +7,7 @@ git init
 cp .env.example .env
 uv sync --all-extras --all-groups
 task --yes setup
-task docs:intl
+task --yes docs:intl
 task --yes verify
 
 # Save
