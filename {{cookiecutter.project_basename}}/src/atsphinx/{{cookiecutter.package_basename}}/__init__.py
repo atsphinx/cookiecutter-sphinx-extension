@@ -1,4 +1,4 @@
-"""{{ cookiecutter.description }}."""
+"""{{ cookiecutter.description }}{% if not cookiecutter.description.endswith('.') %}.{% endif %}"""
 
 from __future__ import annotations
 
