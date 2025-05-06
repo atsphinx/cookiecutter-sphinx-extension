@@ -18,10 +18,12 @@ jobs:
       - name: 'Build package'
         run: |
           uv build
+      {%- raw %}
       - uses: actions/upload-artifact@v4
         with:
           name: packages-${{ github.ref_name }}
           path: dist/
+      {%- endraw %}
   gh-release:
     needs: [build]
     runs-on: ubuntu-latest
@@ -29,6 +31,7 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+      {%- raw %}
       - uses: actions/download-artifact@v4
         with:
           name: packages-${{ github.ref_name }}
@@ -41,15 +44,25 @@ jobs:
           name: Release ${{ github.ref_name }}
           tag: ${{ github.ref }}
           prerelease: false
+      {%- endraw %}
   publish-pypi:
     needs: [build]
     runs-on: ubuntu-latest
+    {%- raw %}
     if: success() && ${{ needs.prepare.outputs.is-release }}
+    {%- endraw %}
+    environment:
+      name: 'pypi'
+      url: 'https://pypi.org/p/atsphinx-{{ cookiecutter.project_name }}'
+    permissions:
+      id-token: write
     steps:
+      {%- raw %}
       - uses: actions/download-artifact@v4
         with:
           name: packages-${{ github.ref_name }}
           path: dist/
+      {%- endraw %}
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
   deploy-docs:
@@ -58,9 +71,11 @@ jobs:
     permissions:
       pages: write
       id-token: write
+    {%- raw %}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    {%- endraw %}
     steps:
       - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
