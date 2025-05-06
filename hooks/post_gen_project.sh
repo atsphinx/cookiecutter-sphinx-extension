@@ -4,10 +4,11 @@
 git init
 
 # Initialize and verify workspace
+cp .env.example .env
 uv sync --all-extras --all-groups
-task setup
+task --yes setup
 task docs:intl
-task verify
+task --yes verify
 
 # Save
 git add .
