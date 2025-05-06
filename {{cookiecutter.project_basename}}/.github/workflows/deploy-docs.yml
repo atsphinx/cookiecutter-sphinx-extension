@@ -13,6 +13,7 @@ permissions:
 
 env:
   UV_NO_SYNC: 1
+  TASK_X_REMOTE_TASKFILES: 1
 
 jobs:
   deploy-doc:
@@ -31,7 +32,7 @@ jobs:
           uv sync --all-extras --frozen
       - name: 'Build document'
         run: |
-          task setup docs:build-mini18n-dirhtml
+          task --yes setup docs:build-mini18n-dirhtml
       - name: 'Upload artifact'
         uses: actions/upload-pages-artifact@v3
         with:
