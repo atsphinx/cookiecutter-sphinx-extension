@@ -7,11 +7,14 @@ vars:
 tasks:
   create:
     desc: 'Shortcut to create new extension.'
-    prompt:
-      - BASENAME
-      - DESCRIPTION
+    vars:
+      BASENAME: '{{ index (splitList " " .CLI_ARGS) 0 }}'
+      DESCRIPTION: '{{ slice (splitList " " .CLI_ARGS) 1 | join " " }}'
     cmds:
       - >
         {{.RUN_PYTHON}} cookiecutter
         -o ..
+        --no-input
         .
+        project_basename='{{.BASENAME}}'
+        description='{{.DESCRIPTION}}'
