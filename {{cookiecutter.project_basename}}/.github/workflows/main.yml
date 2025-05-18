@@ -50,7 +50,7 @@ jobs:
           {%- endif %}
         workspace: ['locked', 'latest']
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
       {%- raw %}
       - name: 'Stand by python-version'
