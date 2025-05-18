@@ -1,0 +1,17 @@
+---
+version: '3'
+
+vars:
+  RUN_PYTHON: 'uv run'
+
+tasks:
+  create:
+    desc: 'Shortcut to create new extension.'
+    prompt:
+      - BASENAME
+      - DESCRIPTION
+    cmds:
+      - >
+        {{.RUN_PYTHON}} cookiecutter
+        -o ..
+        .
