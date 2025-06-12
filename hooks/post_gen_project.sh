@@ -3,6 +3,9 @@
 # Setup as git repository
 git init
 
+# Configure CLI
+aqua i
+
 # Initialize and verify workspace
 cp .env.example .env
 uv sync --all-extras --all-groups
