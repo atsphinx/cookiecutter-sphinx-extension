@@ -34,7 +34,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       {%- raw %}
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: packages-${{ github.ref_name }}
           path: dist/
@@ -60,7 +60,7 @@ jobs:
       id-token: write
     steps:
       {%- raw %}
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           name: packages-${{ github.ref_name }}
           path: dist/
