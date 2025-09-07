@@ -55,7 +55,7 @@ jobs:
     {%- endraw %}
     environment:
       name: 'pypi'
-      url: 'https://pypi.org/p/atsphinx-{{ cookiecutter.project_name }}'
+      url: 'https://pypi.org/p/{{ cookiecutter.project_name }}'
     permissions:
       id-token: write
     steps:
