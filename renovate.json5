@@ -4,9 +4,33 @@
     "config:recommended",
     "github>attakei/workspace-configs//renovate/lefthook",
     "github>attakei/workspace-configs//renovate/taskfile",
+    "github>aquaproj/aqua-renovate-config#2.8.2",
   ],
-  "enabledManagers": [
-    "github-actions",
-    "custom.jsonata",
+  "timezone": "Asia/Tokyo",
+  "schedule": [
+    // Run check at daytime on every weekend
+    "* 9-21 * * 0,6"
+  ],
+  // TODO: Uncomment after check.
+  // "automerge": true,
+  "packageRules": [
+    {
+      "matchFileNames": [
+        // NOTE: Workflow's python version must be kept because it is minimum require-python version.
+        ".python-version",
+      ],
+      "enabled": false,
+    },
+    // NOTE: Require approve when it updates major version of deps
+    {
+      "matchDatasources": ["pypi"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+    },
+    {
+      "matchPackageNames": ["attakei/workspace-configs"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false,
+    },
   ],
 }
