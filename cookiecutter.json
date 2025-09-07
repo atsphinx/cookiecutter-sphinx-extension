@@ -13,6 +13,6 @@
   "_copy_without_render": [
     "Taskfile.yaml",
     "**/Taskfile.yaml",
-    ".github/workflows/deploy-docs.yml"
+    ".github/workflows/deploy-docs.yaml"
   ]
 }
