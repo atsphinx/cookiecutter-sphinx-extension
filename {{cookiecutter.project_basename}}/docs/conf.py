@@ -18,8 +18,11 @@ extensions = [
     "sphinx.ext.githubpages",
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
-    # Third-party extensions
+    # atsphinx extensions
+    "atsphinx.bulma.layout.hero",
     "atsphinx.mini18n",
+    # Third-party extensions
+    "sphinx_toolbox.confval",
 ]
 templates_path = ["_templates", get_mini18n_template_dir()]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
@@ -30,7 +33,7 @@ gettext_compact = False
 locale_dirs = ["_locales"]
 
 # -- Options for HTML output
-html_theme = "furo"
+html_theme = "bulma-basic"
 html_static_path = ["_static"]
 html_title = f"{project} v{release}"
 html_css_files = [
@@ -39,25 +42,39 @@ html_css_files = [
     "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/brands.min.css",
 ]
 html_theme_options = {
-    "footer_icons": [
+    "color_mode": "light",
+    # TODO: Select theme
+    # "bulmaswatch": "",
+    "logo_description": "Documentation of {{ cookiecutter.project_name }}",
+    "navbar_icons": [
         {
-            "name": "GitHub",
+            "label": "",
+            "icon": "fa-brands fa-solid fa-github fa-2x",
             "url": "https://github.com/atsphinx/{{ cookiecutter.project_basename }}/",
-            "html": "",
-            "class": "fa-brands fa-solid fa-github fa-2x",
-        },
+        }
     ],
+    "navbar_search": True,
+    "navbar_show_hidden_toctree": True,
+    "layout": {
+        "index": [
+            {"type": "space", "size": 1},
+            {"type": "main", "size": 10},
+            {"type": "space", "size": 1},
+        ],
+        "**": [
+            {"type": "main", "size": 10},
+            {"type": "sidebar", "size": 2},
+        ],
+    },
 }
 html_sidebars = {
     "**": [
-        "sidebar/scroll-start.html",
-        "sidebar/brand.html",
-        "mini18n/snippets/select-lang.html",
-        "sidebar/search.html",
-        "sidebar/navigation.html",
-        "sidebar/ethical-ads.html",
-        "sidebar/scroll-end.html",
-    ]
+        "sidebar/logo.html",
+        "sidebar/line.html",
+        "select-lang.html",
+        "sidebar/localtoc.html",
+        "navigation.html",
+    ],
 }
 
 # -- Options for extensions
@@ -71,12 +88,3 @@ todo_include_todos = True
 mini18n_default_language = "en"
 mini18n_support_languages = ["en", "ja"]
 mini18n_basepath = "/{{ cookiecutter.project_basename }}/"
-
-
-def setup(app):
-    app.add_object_type(
-        "confval",
-        "confval",
-        objname="configuration value",
-        indextemplate="pair: %s; configuration value",
-    )

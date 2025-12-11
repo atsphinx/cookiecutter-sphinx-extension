@@ -14,19 +14,16 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3 :: Only",
-    {%- if cookiecutter.requires_python in ["3.9"] %}
-    "Programming Language :: Python :: 3.9",
-    {%- endif %}
-    {%- if cookiecutter.requires_python in ["3.9", "3.10"] %}
+    {%- if cookiecutter.requires_python in ["3.10"] %}
     "Programming Language :: Python :: 3.10",
     {%- endif %}
-    {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11"] %}
+    {%- if cookiecutter.requires_python in ["3.10", "3.11"] %}
     "Programming Language :: Python :: 3.11",
     {%- endif %}
-    {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12"] %}
+    {%- if cookiecutter.requires_python in ["3.10", "3.11", "3.12"] %}
     "Programming Language :: Python :: 3.12",
     {%- endif %}
-    {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12", "3.13"] %}
+    {%- if cookiecutter.requires_python in ["3.10", "3.11", "3.12", "3.13"] %}
     "Programming Language :: Python :: 3.13",
     {%- endif %}
     "Topic :: Documentation",
@@ -54,22 +51,26 @@ build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+    {include-group = "lint"},
     {include-group = "test"},
     {include-group = "docs"},
-    "doc8",
     "esbonio",
-    "mypy",
-    "ruff",
-    "types-docutils>=0.21.0.20241128",
-]
-docs = [
-    "atsphinx-mini18n",
-    "furo",
     "sphinx-autobuild",
     "sphinx-intl",
 ]
+lint = [
+    "doc8",
+    "ruff",
+    "ty",
+]
 test = [
     "pytest",
+]
+docs = [
+"atsphinx-bulma",
+    "atsphinx-bulma",
+    "atsphinx-mini18n",
+    "sphinx-toolbox",
 ]
 
 [tool.uv]
