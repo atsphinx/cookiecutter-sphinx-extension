@@ -4,15 +4,13 @@
     "config:recommended",
     "github>attakei/workspace-configs//renovate/lefthook",
     "github>attakei/workspace-configs//renovate/taskfile",
-    "github>aquaproj/aqua-renovate-config#2.8.2",
+    "github>aquaproj/aqua-renovate-config#2.10.0",
   ],
   "timezone": "Asia/Tokyo",
   "schedule": [
-    // Run check at daytime on every weekend
-    "* 9-21 * * 0,6"
+    "* 11-17 5 * *",
   ],
-  // TODO: Uncomment after check.
-  // "automerge": true,
+  "automerge": true,
   "packageRules": [
     {
       "matchFileNames": [
