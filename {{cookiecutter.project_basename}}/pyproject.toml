@@ -73,6 +73,9 @@ test = [
     "pytest",
 ]
 
+[tool.doc8]
+max-line-length = 119
+
 [tool.uv]
 managed = true
 
