@@ -58,4 +58,4 @@ replace = "- Changelog is https://github.com/atsphinx/{{ cookiecutter.project_ba
 path = ".github/release-body.md"
 regex = true
 search = "- Changes are .+"
-replace = "- Changes are https://github.com/atsphinx/{{ cookiecutter.project_basename }}/compare/v{{ current_version }}...v{{ new_version }}/"
+replace = "- Changes are https://github.com/atsphinx/{{ cookiecutter.project_basename }}/compare/v{{ '{{ current_version }}' }}...v{{ '{{ new_version }}' }}/"
