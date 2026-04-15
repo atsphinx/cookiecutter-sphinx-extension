@@ -58,8 +58,8 @@ dev = [
     {include-group = "docs"},
     "doc8",
     "esbonio",
-    "mypy",
     "ruff",
+    "ty",
     "types-docutils>=0.21.0.20241128",
 ]
 docs = [
@@ -91,11 +91,3 @@ allow-direct-references = true
 [tool.hatch.build.targets.wheel]
 packages = ["src/atsphinx"]
 only-includes = ["src/atsphinx"]
-
-[tool.mypy]
-python_version = "{{ cookiecutter.requires_python }}"
-exclude = 'conf\.py$'
-
-[[tool.mypy.overrides]]
-module = ['docutils', 'docutils.*']
-ignore_missing_imports = true
