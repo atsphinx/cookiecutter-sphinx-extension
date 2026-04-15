@@ -63,10 +63,11 @@ dev = [
     "types-docutils>=0.21.0.20241128",
 ]
 docs = [
+    "atsphinx-bulma>=0.4.2",
     "atsphinx-mini18n",
-    "furo",
     "sphinx-autobuild",
     "sphinx-intl",
+    "sphinx-toolbox",
 ]
 test = [
     "pytest",
