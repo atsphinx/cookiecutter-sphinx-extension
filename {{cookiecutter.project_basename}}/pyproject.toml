@@ -14,20 +14,20 @@ classifiers = [
     "Operating System :: OS Independent",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3 :: Only",
-    {%- if cookiecutter.requires_python in ["3.9"] %}
-    "Programming Language :: Python :: 3.9",
-    {%- endif %}
-    {%- if cookiecutter.requires_python in ["3.9", "3.10"] %}
+    {%- if cookiecutter.requires_python in ["3.10"] %}
     "Programming Language :: Python :: 3.10",
     {%- endif %}
-    {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11"] %}
+    {%- if cookiecutter.requires_python in ["3.10", "3.11"] %}
     "Programming Language :: Python :: 3.11",
     {%- endif %}
-    {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12"] %}
+    {%- if cookiecutter.requires_python in ["3.10", "3.11", "3.12"] %}
     "Programming Language :: Python :: 3.12",
     {%- endif %}
-    {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12", "3.13"] %}
+    {%- if cookiecutter.requires_python in ["3.10", "3.11", "3.12", "3.13"] %}
     "Programming Language :: Python :: 3.13",
+    {%- endif %}
+    {%- if cookiecutter.requires_python in ["3.10", "3.11", "3.12", "3.13", "3.14"] %}
+    "Programming Language :: Python :: 3.14",
     {%- endif %}
     "Topic :: Documentation",
     "Topic :: Documentation :: Sphinx",

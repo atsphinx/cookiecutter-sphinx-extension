@@ -35,20 +35,20 @@ jobs:
       max-parallel: 4
       matrix:
         python-version:
-          {%- if cookiecutter.requires_python in ["3.9"] %}
-          - '3.9'
-          {%- endif %}
-          {%- if cookiecutter.requires_python in ["3.9", "3.10"] %}
+          {%- if cookiecutter.requires_python in ["3.10"] %}
           - '3.10'
           {%- endif %}
-          {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11"] %}
+          {%- if cookiecutter.requires_python in ["3.10", "3.11"] %}
           - '3.11'
           {%- endif %}
-          {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12"] %}
+          {%- if cookiecutter.requires_python in ["3.10", "3.11", "3.12"] %}
           - '3.12'
           {%- endif %}
-          {%- if cookiecutter.requires_python in ["3.9", "3.10", "3.11", "3.12", "3.13"] %}
+          {%- if cookiecutter.requires_python in ["3.10", "3.11", "3.12", "3.13"] %}
           - '3.13'
+          {%- endif %}
+          {%- if cookiecutter.requires_python in ["3.10", "3.11", "3.12", "3.13", "3.14"] %}
+          - '3.14'
           {%- endif %}
         workspace: ['locked', 'latest']
     steps:
