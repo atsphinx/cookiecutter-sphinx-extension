@@ -43,7 +43,7 @@ html_css_files = [
 tml_theme_options = {
     "color_mode": "light",
     "bulmaswatch": "simplex",
-    "logo_description": "Documentation of atsphinx-onefile-html.",
+    "logo_description": "Documentation of {{ cookiecutter.project_name }}.",
     "navbar_icons": [
         {
             "label": "",
