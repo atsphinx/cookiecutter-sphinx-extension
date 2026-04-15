@@ -14,9 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: aquaproj/aqua-installer@ea518c135a02fc11ff8024364510c181a5c6b342 # v4.0.3
-        with:
-          aqua_version: v2.43.1
+      - uses: 'atsphinx/.github/actions/setup-aqua@main'
       - name: 'Build package'
         run: |
           uv build
@@ -80,9 +78,7 @@ jobs:
     {%- endraw %}
     steps:
       - uses: actions/checkout@v5
-      - uses: aquaproj/aqua-installer@ea518c135a02fc11ff8024364510c181a5c6b342 # v4.0.3
-        with:
-          aqua_version: v2.43.1
+      - uses: 'atsphinx/.github/actions/setup-aqua@main'
       - name: Build document
         run: |
           task --yes setup docs:build-mini18n-dirhtml

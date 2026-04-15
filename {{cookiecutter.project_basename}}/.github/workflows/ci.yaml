@@ -20,9 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: aquaproj/aqua-installer@ea518c135a02fc11ff8024364510c181a5c6b342 # v4.0.3
-        with:
-          aqua_version: v2.43.1
+      - uses: 'atsphinx/.github/actions/setup-aqua@main'
       - name: 'Configure dependencies'
         run: |
           uv sync --all-extras --frozen
@@ -53,9 +51,7 @@ jobs:
         workspace: ['locked', 'latest']
     steps:
       - uses: actions/checkout@v5
-      - uses: aquaproj/aqua-installer@ea518c135a02fc11ff8024364510c181a5c6b342 # v4.0.3
-        with:
-          aqua_version: v2.43.1
+      - uses: 'atsphinx/.github/actions/setup-aqua@main'
       {%- raw %}
       - name: 'Stand by python-version'
         run: |
@@ -76,9 +72,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: aquaproj/aqua-installer@ea518c135a02fc11ff8024364510c181a5c6b342 # v4.0.3
-        with:
-          aqua_version: v2.43.1
+      - uses: 'atsphinx/.github/actions/setup-aqua@main'
       - name: 'Configure dependencies'
         run: |
           uv sync --all-extras --frozen
@@ -89,9 +83,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: aquaproj/aqua-installer@ea518c135a02fc11ff8024364510c181a5c6b342 # v4.0.3
-        with:
-          aqua_version: v2.43.1
+      - uses: 'atsphinx/.github/actions/setup-aqua@main'
       - name: 'Try building as package'
         run: |
           uv build
