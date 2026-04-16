@@ -19,7 +19,7 @@ jobs:
         run: |
           uv build
       {%- raw %}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: packages-${{ github.ref_name }}
           path: dist/
@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       {%- raw %}
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v8
         with:
           name: packages-${{ github.ref_name }}
           path: dist/
@@ -58,7 +58,7 @@ jobs:
       id-token: write
     steps:
       {%- raw %}
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v8
         with:
           name: packages-${{ github.ref_name }}
           path: dist/
